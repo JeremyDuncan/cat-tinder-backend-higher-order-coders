@@ -38,7 +38,8 @@
 //#############################
 .but {
   @include button-styles;
-  min-width: 15em;
+  min-width: 10em;
+  padding: 15px;
 }
 .arrow {
   background: $primary;
@@ -63,8 +64,11 @@
   animation:         $bounce-right;
 }
 
+
 .select {
   background:  $primary;
+  padding: 15px;
+  padding-left: 40px;
 }
 
 .select:hover {
@@ -79,6 +83,7 @@
 
 .select:after {
   content: "\f6be";
+
 }
 
 .select:hover:after {

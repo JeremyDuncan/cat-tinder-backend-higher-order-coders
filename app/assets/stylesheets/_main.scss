@@ -1,0 +1,176 @@
+@import "mixins";
+
+.page {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Targets H1 on pages ex(Home, Index, Edit, etc..)*/
+#root>div.App>div>h1 {
+  font-family: 'Lobster Two', cursive;
+  color: rgb(239, 121, 121);
+  font-size: 3.3rem;
+  text-shadow: 2px 2px 4px black;
+}
+
+/* === === Forms === === */
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.formInput {
+  background-color: #ddd5d0;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.formLabel {
+  text-align: left;
+  justify-content: left;
+  align-items: left;
+}
+
+.catForm {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 80%;
+  background-color: red;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 4px 8px 17px black;
+  background-color: rgb(198, 109, 109);
+  font-weight: bold;
+  font-size: 1.5rem;
+  border: 2px solid rgb(155, 99, 99);
+  text-shadow: 1px 1px 2px rgb(182, 176, 176);
+  text-align: left;
+  margin-bottom: 25px;
+}
+
+
+/* === === Cat Images === === */
+.catImagesHome>img {
+  border-radius:    8px;
+  height:           350px;
+  width:            auto;
+  border:           2px solid rgb(155, 99, 99);
+  box-shadow:       $box-shadow;
+  background-color: $pink;
+}
+.catImagesHome{
+  display:         flex;
+  justify-content: space-between;
+}
+
+/* === === Cards === === */
+.cardCollection {
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+}
+
+.card-title {
+  font-family: 'Lobster Two', cursive;
+}
+
+.card {
+  box-shadow:       4px 8px 17px black;
+  height:           500px;
+  width:            18rem;
+  border-radius:    10px;
+  display:          flex;
+  padding:          5px;
+  background-color: rgb(198, 109, 109);
+  border:           2px solid rgb(155, 99, 99);
+  margin-bottom:    20px;
+  justify-content: center;
+}
+
+.cardImage {
+  border-radius: 10px 10px 0px 0px;
+  height: 250px;
+  width:  90%;
+}
+
+.subtitle {
+  color: rgb(190, 190, 196);
+}
+
+/* Card Description */
+.description {
+  background-color: rgb(60, 55, 55);
+  color: rgb(239, 121, 121);
+  border-radius: 0px 0px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  //justify-content: space-around;
+  height: 200px;
+  text-align: center;
+  width: 90%;
+}
+
+/* === === Buttons === === */
+.catButtons {
+  display:         flex;
+  margin-bottom:   80px;
+  justify-content: center;
+  gap:             35px;
+}
+
+.submitButton {
+  display:         flex;
+  gap:             15px;
+  margin-bottom:   110px;
+  justify-content: center;
+}
+
+.btn {
+  box-shadow: 2px 2px 9px black;
+  color: rgb(239, 121, 121);
+  font-weight: bold;
+  background: #701202;
+
+  border-radius: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.btnSep {
+  display:         flex;
+  position:        relative;
+  justify-content: center;
+  align-items:     center;
+  text-align:      left;
+}
+
+.btnForm {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  text-align: right;
+}
+
+.btn:hover {
+  background: rgb(239, 121, 121);
+  color: rgb(60, 55, 55);
+  font-weight: bold;
+}
+
+.btn-secondary:active {
+  color: rgb(31, 17, 17);
+  font-weight: bold;
+  background: #c33114;
+}
+
+/* === === Index Page === === */
+.index {
+  margin-bottom: 100px;
+}

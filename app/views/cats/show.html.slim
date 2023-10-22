@@ -1,23 +1,33 @@
-h1 Say Hello To #{@cat.name}
-br
-.cardCollection
-  / === CAT CARD START ===
+.flex-box.col.center
+  h1 Say Hello To #{@cat.name}
+  br
   .card
-    = image_tag @cat.image, class: 'cardImage', alt: 'Sample'
-    .description
-      h1.card-title = @cat.name
-      h6.subtitle
-        h5 = "#{@cat.age} Years Old"
-        h5 Enjoys:
-        = @cat.enjoys
-/ === CAT CARD END ===
-.catButtons
-  = link_to edit_cat_path(@cat) do
-    i.fas.fa-pen-to-square<>
-    | Edit Cat Profile
-= form_with url: cat_path(@cat), method: :delete, data: { confirm: 'Are you sure?' } do
-  = submit_tag 'Delete Cat Profile', class: 'btn btn-danger'
-  i class='fas fa-trash-alt'
+    .flex-box.center.col.gap-m.full-width
+      img.cardImage alt="Sample" src=@cat.image
+      .description
+        h1.card-title = @cat.name
+        .subtitle
+          = "#{@cat.age} Years Old"
+          br
+          | Enjoys:
+          = @cat.enjoys
+
+  .catButtons
+    = link_to edit_cat_path(@cat), class: 'btnSep but arrow' do
+      .div style="padding-right: 50px"
+        i.fas.fa-pen-to-square<>
+        | Edit #{@cat.name}
+
+    = link_to delete_cat_path(@cat), class: 'btnSep but arrow' do
+      .div style="padding-right: 30px"
+        i.fas.fa-trash-alt<>
+        | Delete
+
+
+
+      / = form_with url: cat_path(@cat), method: :delete, data: { confirm: 'Are you sure?' } do
+  /   = submit_tag 'Delete Cat Profile', class: 'btn btn-danger'
+  /   i class='fas fa-trash-alt'
 
 
 

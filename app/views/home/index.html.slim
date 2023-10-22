@@ -1,16 +1,23 @@
 
-.page
-  h1 Home
-  h2 Welcome to Cat Tinder, the place where cats nip!
+.flex-box.center.col
+  h1 Welcome to Cat Tinder, the place where cats come to nip!
 
   br
 
-  .imageContainer
-    .catImagesHome
-      = image_tag 'cat_readme_pic.webp', alt: 'Stella Cat'
-      = image_tag 'cat_home_4.webp', alt: 'Sassy Cat'
-      = image_tag 'cat_home_6.webp', alt: 'Posing Cat'
+  .flex-box.center.col.gap-xxl.full-width
+    .flex-box.center.full-width.gap-l
+      .catImagesHome
+        = image_tag 'cat_readme_pic.webp', alt: 'Stella Cat'
+      .catImagesHome
+        = image_tag 'cat_home_4.webp',     alt: 'Sassy Cat'
+      .catImagesHome
+        = image_tag 'cat_home_6.webp',     alt: 'Posing Cat'
 
-  .catButtons
-    = link_to 'See Available Cats!', cats_path, class: 'btnSep but select'
-    = link_to 'Add Your Own Cat!', new_cat_path, class: 'btnSep but select'
+    .catButtons
+      = link_to cats_path, class: 'btnSep but select' do
+        .div style="padding-right: 60px"
+          | See Available Cats!
+
+      = link_to  new_cat_path, class: 'btnSep but select' do
+        .div style="padding-right: 60px"
+          | Add Your Own Cat!

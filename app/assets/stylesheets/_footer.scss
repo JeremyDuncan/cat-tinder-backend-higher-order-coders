@@ -12,20 +12,21 @@
   justify-content: center;
   align-items:     center;
   text-align:      center;
-  @include         box-shadow(4px, 8px, 17px, $black);
+  box-shadow:      $box-shadow;
   color:           $light-grey;
   border-top:      3px solid $border-color;
-
-  > div {
-    > h4 {
-      font-size: 1rem;
-    }
+  > h4 {
+    font-size: 1rem;
+    margin: 0px;
+  }
+  > h4 > a{
+    color:           $light-grey;
   }
 }
 
 .image {
   border-radius: 20px;
-  @include box-shadow(4px, 8px, 17px, $black);
+  box-shadow:    $box-shadow;
 }
 
 .container-fluid {
@@ -33,4 +34,10 @@
     margin: auto;
     color: $light-grey;
   }
+}
+
+.fixed-bottom {
+  position: fixed;
+  bottom:   0;
+  width:    100%;
 }

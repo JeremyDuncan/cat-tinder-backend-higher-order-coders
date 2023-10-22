@@ -26,8 +26,17 @@ class CatsController < ApplicationController
     @cat.update(cat_params)
   end
 
-
   def destroy
+    @cat = Cat.find_by(id: params[:id])
+    if @cat
+      @cat.destroy
+      redirect_to cats_path, notice: 'Cat was successfully deleted.'
+    else
+      redirect_to cats_path, alert: 'Cat not found.'
+    end
+  end
+
+  def delete
     @cat = Cat.find(params[:id])
     @cat.destroy
     redirect_to cats_path, notice: 'Cat was successfully deleted.'

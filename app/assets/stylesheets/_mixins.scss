@@ -26,10 +26,14 @@ $text-color:    rgb(82, 11, 11);
 $link-color:    white;
 $light-blue:    #0079a5;
 $blue:          #002e3f;
+$txt-shadow:    2px 2px 4px  $black;
+$box-shadow:    2px 2px 17px $black;
 // ======-----------------------------------------------------------------------
 // Misc
 // ------
 $bold:          bold;
+$logo-size:     80px;
+$title-size:    2.8rem;
 $ease-in-out:   all .3s ease-in-out;
 $trans-time:    0.2s;
 $bounce-right:  bounceRight 0.3s alternate ease infinite;
