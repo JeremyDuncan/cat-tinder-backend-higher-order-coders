@@ -1,0 +1,38 @@
+.header
+  .navbar.desktop.fixed-top
+    .navbar-brand href="/"
+      = image_tag "cat_logo.svg", alt: "logo"
+
+      .pageTitle Cat Tinder
+    .linkContainer
+      a.nav-link.grow href="/"
+        i.fas.fa-house
+        | Home
+      a.nav-link.grow href="/cats"
+        i.fas.fa-cat
+        | Available Cats
+      a.nav-link.grow href="/cats/new"
+        i.fas.fa-paw
+        | Add Cat
+
+  .navbar.mobile.fixed-top
+    .navbar-brand href="/"
+      img alt="logo" src="path_to_logo/logo.svg"
+      .pageTitle Cat Tinder
+    .toggler
+      button.navbar-toggler.me-2 type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+        span.navbar-toggler-icon
+    #navbarCollapse.collapse.navbar-collapse
+      ul.navbar-nav
+        li.nav-item
+          a.nav-link.grow.mobileLinks href="/"
+            i.fas.fa-house
+            | Home
+        li.nav-item
+          a.nav-link.grow.mobileLinks href="/catindex"
+            i.fas.fa-cat
+            | Available Cats
+        li.nav-item
+          a.nav-link.grow.mobileLinks href="/catnew"
+            i.fas.fa-paw
+            | Add Cat

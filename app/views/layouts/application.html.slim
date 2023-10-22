@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title CatTinderBackend
+
+    script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"
+    script src="https://cdn.jsdelivr.net/npm/@mdi/font@7.3.67/scripts/verify.min.js"
+
+    link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.3.0/css/all.css"
+    link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.3.67/css/materialdesignicons.min.css"
+
+    meta name="viewport" content="width=device-width,initial-scale=1"
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    = javascript_importmap_tags
+  body
+    = render "/layouts/header"
+    = yield
+    = render "/layouts/footer"
+
+
+

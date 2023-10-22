@@ -24,6 +24,11 @@ default: &default
 development:
   <<: *default
   database: cat_tinder_backend_development
+  url: <%= ENV['DATABASE_URL'] %>
+  username: postgres  # Changed to match the default PostgreSQL username
+  password: 63376337 # Changed to match the environment variable
+#  host: db  # This should match the service name in docker-compose.yml
+  port: 5432  # Default PostgreSQL port
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -83,5 +88,5 @@ production:
   <<: *default
   database: cat_tinder_backend_production
   username: cat_tinder_backend
-  password: <%= ENV["CAT_TINDER_BACKEND_DATABASE_PASSWORD"] %>
+  password: 6337Yahoo!!!!! #<%= ENV["CAT_TINDER_BACKEND_DATABASE_PASSWORD"] %>
   url: <%= ENV['DATABASE_URL'] %>

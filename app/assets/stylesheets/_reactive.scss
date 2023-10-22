@@ -1,0 +1,183 @@
+@import "mixins";
+
+//##############################################################################
+//##  Reactive Styles for Menu Toggler  ##
+//########################################
+.toggler :hover {
+  transform:        scale(1.1);
+  background-color: $pink;
+}
+
+.toggler :active {
+  transform:        scale(1);
+  background-color: $pink;
+}
+
+/* == Used to give transition affect for links == */
+.grow {
+  font-weight: bold;
+  transition:  $ease-in-out;
+
+}
+
+.grow:hover {
+  color: $pink;
+}
+
+.shrink {
+  margin-left: 10px;
+  transform:   translateX(0);
+}
+
+#root>link:active {
+  color: $pink;
+}
+
+//##############################################################################
+//##  Animation for Buttons  ##
+//#############################
+.but {
+  @include button-styles;
+  min-width: 15em;
+}
+.arrow {
+  background: $primary;
+}
+
+.arrow:hover {
+  background: $pink;
+  color:      $dark-grey;
+}
+
+.arrow:active,
+.arrow:focus {
+  background: $secondary;
+}
+
+.arrow:after {
+  content: "\f138";
+}
+
+.arrow:hover:after {
+  -webkit-animation: $bounce-right;
+  animation:         $bounce-right;
+}
+
+.select {
+  background:  $primary;
+}
+
+.select:hover {
+  background: $pink;
+  color:      $dark-grey;
+}
+
+.select:active,
+.select:focus {
+  background: $secondary;
+}
+
+.select:after {
+  content: "\f6be";
+}
+
+.select:hover:after {
+  -webkit-animation: $bounce-up;
+  animation:         $bounce-up;
+}
+
+//##############################################################################
+//##  Thumbs Down Button  ##
+//##########################
+.thumbsDownButton, .thumbsUpButton {
+  @include button-styles;
+  min-width: 10em;
+}
+.thumbsDown {
+  background: $primary;
+}
+
+.thumbsDown:hover {
+  background: $pink;
+  color:      $dark-grey;
+}
+
+.thumbsDown:active,
+.thumbsDown:focus {
+  background: $secondary;
+}
+
+.thumbsDown:after {
+  content: "\f165";
+}
+
+.thumbsDown:hover:after {
+  -webkit-animation: $bounce-down;
+  animation:         $bounce-down;
+}
+
+//##############################################################################
+//##  Thumbs Up Button  ##
+//##########################
+.thumbsUp {
+  background: $primary;
+}
+
+.thumbsUp:hover {
+  background: $pink;
+  color:      $dark-grey;
+}
+
+.thumbsUp:active,
+.thumbsUp:focus {
+  background: $secondary;
+}
+
+.thumbsUp:after {
+  content: "\f164";
+}
+
+.thumbsUp:hover:after {
+  -webkit-animation: $thumbs-up;
+  animation:         $thumbs-up;
+}
+
+
+@keyframes bounceRight {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(3px);
+  }
+}
+
+
+@keyframes bounceUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-6px);
+  }
+}
+
+
+@keyframes bounceDown {
+  from {
+    transform: translateY(3);
+  }
+  to {
+    transform: translateY(6px);
+  }
+}
+
+
+@keyframes thumbsUp {
+  from {
+    transform: translateY(3);
+  }
+  to {
+    transform: translateY(-6px);
+  }
+}

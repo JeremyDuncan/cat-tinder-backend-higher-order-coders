@@ -1,0 +1,31 @@
+h1 Say Hello To #{@cat.name}
+br
+.cardCollection
+  / === CAT CARD START ===
+  .card
+    = image_tag @cat.image, class: 'cardImage', alt: 'Sample'
+    .description
+      h1.card-title = @cat.name
+      h6.subtitle
+        h5 = "#{@cat.age} Years Old"
+        h5 Enjoys:
+        = @cat.enjoys
+/ === CAT CARD END ===
+.catButtons
+  = link_to edit_cat_path(@cat) do
+    i.fas.fa-pen-to-square<>
+    | Edit Cat Profile
+= form_with url: cat_path(@cat), method: :delete, data: { confirm: 'Are you sure?' } do
+  = submit_tag 'Delete Cat Profile', class: 'btn btn-danger'
+  i class='fas fa-trash-alt'
+
+
+
+
+
+
+
+
+
+
+

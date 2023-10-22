@@ -1,0 +1,17 @@
+#index
+  - if @cats.empty?
+    h2.loadMessage LOADING PLEASE WAIT
+    h4 Server Booting Up
+  - else
+    h1 Available Cats
+
+  br
+
+  .cardCollection.loader
+    - @cats.each_with_index do |cat, index|
+      div key=index cat=cat
+        .card
+          img.cardImage alt="Sample" src=cat.image
+          .description
+            h1 = cat.name
+            = link_to "View #{cat.name}", cat_path(cat), class: 'btnSep but arrow'

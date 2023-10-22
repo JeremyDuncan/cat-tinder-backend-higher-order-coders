@@ -1,0 +1,36 @@
+@import "mixins";
+
+#navFooter {
+  background: $primary;
+  background: -moz-linear-gradient(top,    $primary 0%, $secondary 50%, $tertiary 100%);
+  background: -webkit-linear-gradient(top, $primary 0%, $secondary 50%, $tertiary 100%);
+  background: linear-gradient(to bottom,   $primary 0%, $secondary 50%, $tertiary 100%);
+
+  opacity:         .95;
+  filter:          (opacity=50);
+  display:         flex;
+  justify-content: center;
+  align-items:     center;
+  text-align:      center;
+  @include         box-shadow(4px, 8px, 17px, $black);
+  color:           $light-grey;
+  border-top:      3px solid $border-color;
+
+  > div {
+    > h4 {
+      font-size: 1rem;
+    }
+  }
+}
+
+.image {
+  border-radius: 20px;
+  @include box-shadow(4px, 8px, 17px, $black);
+}
+
+.container-fluid {
+  > h4 {
+    margin: auto;
+    color: $light-grey;
+  }
+}

@@ -1,0 +1,22 @@
+h1 Edit Cat Profile
+br
+= form_with(model: @cat, local: true) do |f|
+  .formSection
+    = f.label :name, class: 'formLabel'
+    = f.text_field :name, class: 'formInput', placeholder: @cat.name
+
+  .formSection
+    = f.label :age, class: 'formLabel'
+    = f.text_field :age, class: 'formInput', placeholder: @cat.age
+
+  .formSection
+    = f.label :enjoys, class: 'formLabel'
+    = f.text_field :enjoys, class: 'formInput', placeholder: @cat.enjoys
+
+  .formSection
+    = f.label :image, 'Image URL', class: 'formLabel'
+    = f.text_field :image, class: 'formInput', placeholder: @cat.image
+
+  .submitButton
+    = f.submit 'Submit', class: 'btnForm thumbsUpButton thumbsUp'
+    = link_to 'Cancel', cats_path, class: 'btnForm thumbsDownButton thumbsDown'

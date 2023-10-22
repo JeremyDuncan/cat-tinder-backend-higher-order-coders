@@ -1,0 +1,20 @@
+h1 Add Your Cat
+br
+= form_with(model: Cat.new, local: true) do |f|
+  .formContainer
+    .catForm
+      = f.label :name, 'Name:', class: 'formLabel'
+      = f.text_field :name, class: 'formInput', placeholder: "Enter the cat's name", autofocus: true, required: true
+      br
+      = f.label :age, 'Age:', class: 'formLabel'
+      = f.text_field :age, class: 'formInput', placeholder: "Enter the cat's age", required: true
+      br
+      = f.label :enjoys, 'Enjoys:', class: 'formLabel'
+      = f.text_field :enjoys, class: 'formInput', placeholder: "Enter what the cat enjoys", required: true
+      br
+      = f.label :image, 'Image URL:', class: 'formLabel'
+      = f.text_field :image, class: 'formInput', placeholder: "Enter a cat image URL", required: true
+      br
+    .submitButton
+      = f.submit 'Submit', class: 'btnForm thumbsUpButton thumbsUp'
+      = link_to 'Cancel', cats_path, class: 'btnForm thumbsDownButton thumbsDown'

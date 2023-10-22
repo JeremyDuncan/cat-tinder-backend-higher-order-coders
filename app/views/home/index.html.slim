@@ -1,0 +1,16 @@
+
+.page
+  h1 Home
+  h2 Welcome to Cat Tinder, the place where cats nip!
+
+  br
+
+  .imageContainer
+    .catImagesHome
+      = image_tag 'cat_readme_pic.webp', alt: 'Stella Cat'
+      = image_tag 'cat_home_4.webp', alt: 'Sassy Cat'
+      = image_tag 'cat_home_6.webp', alt: 'Posing Cat'
+
+  .catButtons
+    = link_to 'See Available Cats!', cats_path, class: 'btnSep but select'
+    = link_to 'Add Your Own Cat!', new_cat_path, class: 'btnSep but select'

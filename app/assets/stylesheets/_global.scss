@@ -1,0 +1,28 @@
+@import "mixins";
+
+body {
+  margin:      0;
+  font-family: $font-family-default;
+  background:  $bg-body-image $bg-body-color;
+  -webkit-font-smoothing:  antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  code {
+    font-family: $font-family-code;
+  }
+  h2 {
+    font-weight: $bold;
+  }
+}
+
+.App {
+  text-align:     center;
+  @include        flex-center;
+  flex-direction: column;
+  font-family:    'Roboto', sans-serif;
+  color:          $text-color;
+}
+
+a {
+  text-decoration: none;
+  color:           $link-color;
+}
