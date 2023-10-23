@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_24_223304) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_22_231935) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cat_images", force: :cascade do |t|
+    t.bigint "cat_id", null: false
+    t.json "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cat_id"], name: "index_cat_images_on_cat_id"
+  end
 
   create_table "cats", force: :cascade do |t|
     t.string "name"
@@ -23,4 +31,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_24_223304) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "cat_images", "cats"
 end

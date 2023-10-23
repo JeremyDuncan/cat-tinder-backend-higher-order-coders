@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&family=Roboto&display=swap');
+
+//##############################################################################
+//##  Define your variables  ##
+//#############################
+$font-family-default: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+$font-family-code:    source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+$font-family-title:   'Lobster Two', cursive;
+$button-font:         "Montserrat", "Trebuchet MS", Helvetica, sans-serif;
+// ======-----------------------------------------------------------------------
+// Colors
+// ------
+$bg-body-image: url('./assets/background_cat1.webp');
+$dark-red:      rgb(82, 11, 11);
+$pink:          rgb(239, 121, 121);
+$dk-grey:       rgba(0, 0, 0, 0.1);
+$dark-grey:     rgb(60, 55, 55);
+$light-grey:    rgb(190, 183, 183);
+$black:         black;
+$primary:       #911500;
+$secondary:     #A10808;
+$tertiary:      #820000;
+$border-color:  rgb(108, 28, 28);
+$bg-body-color: rgb(169, 144, 144);
+$text-color:    rgb(82, 11, 11);
+$link-color:    white;
+$light-blue:    #0079a5;
+$blue:          #002e3f;
+$txt-shadow:    2px 2px 4px  $black;
+$box-shadow:    2px 2px 17px $black;
+// ======-----------------------------------------------------------------------
+// Misc
+// ------
+$bold:          bold;
+$logo-size:     80px;
+$title-size:    2.8rem;
+$ease-in-out:   all .3s ease-in-out;
+$trans-time:    0.2s;
+$bounce-right:  bounceRight 0.3s alternate ease infinite;
+$bounce-up:     bounceUp    0.3s alternate ease infinite;
+$bounce-down:   bounceDown  0.3s alternate ease infinite;
+$thumbs-up:     thumbsUp    0.3s alternate ease infinite;
+
+
+//##############################################################################
+//##  Define your mixins  ##
+//##########################
+@mixin border-radius($radius) {
+  border-radius: $radius;
+}
+
+@mixin transition($transition) {
+  transition: $transition;
+}
+
+@mixin flex-center {
+  display:         flex;
+  justify-content: center;
+  align-items:     center;
+}
+
+@mixin box-shadow($x, $y, $blur, $color) {
+  box-shadow: $x $y $blur $color;
+}
+
+@mixin button-styles {
+  display:                inline-block;
+  font-family:            $button-font;
+  transition:             $trans-time;
+  border-radius:          10px;
+  -webkit-font-smoothing: antialiased;
+
+  &:hover { background: $light-blue; }
+  &:active, &:focus {
+    background: $blue;
+    outline:    none;
+  }
+  &:before, &:after {
+    display:          flex;
+    position:         absolute;
+    top:              0;
+    bottom:           0;
+    right:            0;
+    padding-top:      inherit;
+    padding-bottom:   inherit;
+    width:            2.8em;
+    font-family:      'FontAwesome';
+    font-size:        1.2em;
+    text-align:       center;
+    transition:       $trans-time;
+    transform-origin: 50% 60%;
+    font-size:        2rem;
+    align-items:      center;
+    justify-content:  center;
+    justify-content:  space-around;
+  }
+  &:before { background: $dk-grey; }
+}

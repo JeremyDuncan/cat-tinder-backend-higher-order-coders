@@ -1,0 +1,111 @@
+@import "mixins";
+
+
+.header {
+  margin-bottom: 30px;
+  position:      sticky;
+  top:           0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.linkContainer {
+  display:         flex;
+  gap:             50px;
+  justify-content: space-evenly;
+  margin:          auto;
+  font-weight:     bold;
+  font-size:       1.3rem;
+  color:           $light-grey;
+  text-shadow:     $txt-shadow;
+}
+
+.pageTitle {
+  font-family:    $font-family-title;
+  color:          $pink;
+  font-size:      $title-size;
+  padding-top:    15px;
+  padding-bottom: 5px;
+  text-shadow:    $txt-shadow;
+  white-space:    nowrap;
+}
+.mobileLinks {
+  color:       $light-grey;
+  text-shadow: $txt-shadow;
+}
+
+.navbar-brand {
+  width: $logo-size;
+  display: flex;
+}
+
+/* == Cat Logo expandable header == */
+#root>div:nth-child(1)>nav>div>a>img {
+  padding:        0px;
+  width:          180px;
+  height:         90px;
+  margin-top:    -16px;
+  margin-bottom: -20px;
+}
+
+/* New Header  expandable header */
+.pageTitle {
+  font-family: $font-family-title;
+  color:       $pink;
+  font-size:   $title-size;
+  margin-top: -17px;
+  text-shadow: $txt-shadow;
+}
+
+#root>div:nth-child(1)>nav>div>a {
+  display: flex;
+  height:  70px;
+}
+
+/* Header Bar */
+#navHeader {
+  background: $primary;
+  background: -moz-linear-gradient(top,    $primary 0%, $secondary 50%, $tertiary 100%);
+  background: -webkit-linear-gradient(top, $primary 0%, $secondary 50%, $tertiary 100%);
+  background: linear-gradient(to bottom,   $primary 0%, $secondary 50%, $tertiary 100%);
+
+  display:         flex;
+  justify-content: center;
+  align-items:     center;
+  text-align:      center;
+  box-shadow:      $box-shadow;
+}
+
+/* Expandable Header Option */
+#root>div:nth-child(1)>nav {
+  /* display: none; hides bar */
+  background: $primary;
+  background: -moz-linear-gradient(top,    $primary 0%, $secondary 50%, $tertiary 100%);
+  background: -webkit-linear-gradient(top, $primary 0%, $secondary 50%, $tertiary 100%);
+  background: linear-gradient(to bottom,   $primary 0%, $secondary 50%, $tertiary 100%);
+
+  box-shadow:    $box-shadow;
+  border-bottom: 3px solid rgb(108, 28, 28);
+}
+
+
+
+
+
+
+.links {
+  display:         flex;
+  justify-content: space-between;
+  margin:          auto;
+}
+
+#navHeader>div {
+  padding-left: 20px;
+  color:        $light-grey;
+  font-weight:  bold;
+  text-shadow:  $txt-shadow;
+}
+

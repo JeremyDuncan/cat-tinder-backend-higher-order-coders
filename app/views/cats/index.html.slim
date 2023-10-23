@@ -1,0 +1,25 @@
+.flex-box.col.center
+  - if @cats.empty?
+    h2.loadMessage LOADING PLEASE WAIT
+    h4 Server Booting Up
+  - else
+
+    h1 Available Cats
+
+  br
+
+  .cardCollection.loader
+    - @cats.select { |cat| cat.cat_images.any? }.each_with_index do |cat, index|
+      .flex-box.col.center
+          .card style="height: 400px"
+            .flex-box.center.col.gap-s.full-width
+              img.cardImage alt="Sample" src=cat.cat_images.first.image.url(:thumb_large)
+
+              / img.cardImage alt="Sample" src=cat.image.url(:thumb_large)
+              .description.center
+                h1 = cat.name
+
+          .flex-box.center style="width: 100px"
+            = link_to cat_path(cat), class: 'btnSep but arrow' do
+              .div style="padding-right: 50px"
+                | View #{cat.name}
