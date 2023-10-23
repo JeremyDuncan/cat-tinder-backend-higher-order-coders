@@ -6,7 +6,7 @@ FROM ruby:3.0.0
 # ==============================================================================
 # Set environment variables
 # ------------------------------------------------------------------------------
-ENV RAILS_ROOT /var/www/CatTinder
+ENV RAILS_ROOT /var/www/cat_tinder
 
 # ==============================================================================
 # Create and set the working directory
@@ -17,7 +17,8 @@ WORKDIR $RAILS_ROOT
 # ==============================================================================
 # Install system dependencies
 # ------------------------------------------------------------------------------
-RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
+RUN apt-get update -qq && apt-get install -y nodejs postgresql-client imagemagick
+
 
 # ==============================================================================
 # Copy Gemfile and install gems

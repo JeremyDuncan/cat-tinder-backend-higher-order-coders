@@ -21,7 +21,7 @@ services:
         bundle exec rails assets:precompile && \
         bundle exec rails s -p ${WEB_PORT_INTERNAL} -b '0.0.0.0'
     volumes:
-      - ${APP_VOLUME_PATH}:/var/www/CatTinder
+      - ${APP_VOLUME_PATH}:/var/www/cat_tinder
     ports:
       - "${WEB_PORT_EXTERNAL}:${WEB_PORT_INTERNAL}"
     depends_on:
