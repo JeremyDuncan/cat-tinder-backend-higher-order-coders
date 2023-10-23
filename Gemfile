@@ -45,6 +45,10 @@ gem "bootsnap", require: false
 
 gem "slim"
 gem "sass-rails"
+gem 'carrierwave'
+gem 'fog-aws'
+gem 'mini_magick'
+
 
 # Use Sass to process CSS
 # gem "sassc-rails"

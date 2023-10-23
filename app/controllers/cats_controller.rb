@@ -4,6 +4,11 @@ class CatsController < ApplicationController
     @cats = Cat.all
   end
 
+
+  def new
+    @cat = Cat.new
+    @cat.cat_images.build  # This line builds an associated cat_image for the new Cat instance
+  end
   def create
     @cat = Cat.create(cat_params)
 
@@ -43,8 +48,12 @@ class CatsController < ApplicationController
   end
 
   private
+  # def cat_params
+  #   params.require(:cat).permit(:name, :age, :enjoys, :image)
+  # end
   def cat_params
-    params.require(:cat).permit(:name, :age, :enjoys, :image)
+    # params.require(:cat).permit(:name, :age, :enjoys, cat_images_attributes: [:id, { image: [] }, :_destroy])
+    params.require(:cat).permit(:name, :age, :enjoys,
+                                cat_images_attributes: [:id, :image, :_destroy])
   end
-
 end

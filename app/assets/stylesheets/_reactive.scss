@@ -114,11 +114,13 @@
 
 .thumbsDown:after {
   content: "\f165";
+  font-size: 1.2rem;
+
 }
 
 .thumbsDown:hover:after {
-  -webkit-animation: $bounce-down;
-  animation:         $bounce-down;
+  //-webkit-animation: $bounce-down;
+  //animation:         $bounce-down;
 }
 
 //##############################################################################

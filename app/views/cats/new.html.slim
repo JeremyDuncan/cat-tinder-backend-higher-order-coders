@@ -1,20 +1,19 @@
-h1 Add Your Cat
-br
-= form_with(model: Cat.new, local: true) do |f|
-  .formContainer
-    .catForm
-      = f.label :name, 'Name:', class: 'formLabel'
-      = f.text_field :name, class: 'formInput', placeholder: "Enter the cat's name", autofocus: true, required: true
-      br
-      = f.label :age, 'Age:', class: 'formLabel'
-      = f.text_field :age, class: 'formInput', placeholder: "Enter the cat's age", required: true
-      br
-      = f.label :enjoys, 'Enjoys:', class: 'formLabel'
-      = f.text_field :enjoys, class: 'formInput', placeholder: "Enter what the cat enjoys", required: true
-      br
-      = f.label :image, 'Image URL:', class: 'formLabel'
-      = f.text_field :image, class: 'formInput', placeholder: "Enter a cat image URL", required: true
-      br
-    .submitButton
-      = f.submit 'Submit', class: 'btnForm thumbsUpButton thumbsUp'
-      = link_to 'Cancel', cats_path, class: 'btnForm thumbsDownButton thumbsDown'
+.form-container
+  h1.text-center Add Your Cat
+  = form_with(model: @cat, local: true, html: { multipart: true }) do |f|
+    = f.label :name, 'Name:', class: 'form-label'
+    = f.text_field :name, class: 'form-input', placeholder: "Enter the cat's name", autofocus: true, required: true
+    br
+    = f.label :age, 'Age:', class: 'form-label'
+    = f.text_field :age, class: 'form-input', placeholder: "Enter the cat's age", required: true
+    br
+    = f.label :enjoys, 'Enjoys:', class: 'form-label'
+    = f.text_field :enjoys, class: 'form-input', placeholder: "Enter what the cat enjoys", required: true
+    br
+    = f.label :images, 'Upload Images:', class: 'form-label'
+    = f.file_field :images, multiple: true, accept: 'image/*', name: 'cat[cat_images_attributes][][image]', class: 'form-input'
+    br
+    .flex-box
+        = f.submit 'Submit', class: 'form-submit btnForm  thumbsUpButton thumbsUp'
+        = link_to cats_path, class: 'form-cancel btnForm thumbsDownButton thumbsDown' do
+            | Cancel

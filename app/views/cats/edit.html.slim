@@ -13,9 +13,22 @@ br
     = f.label :enjoys, class: 'formLabel'
     = f.text_field :enjoys, class: 'formInput', placeholder: @cat.enjoys
 
+  - @cat.cat_images.each do |cat_image|
+    -if cat_image.image.present?
+      .formSection
+        = f.fields_for :cat_images, cat_image do |image_fields|
+          = image_fields.label :image, 'Current Image', class: 'formLabel'
+          = image_tag cat_image.image.url(:thumb_small), class: 'current-image-thumb'
+          br
+          = image_fields.label :image, 'Update Image', class: 'formLabel'
+          = image_fields.file_field :image, class: 'formInput'
+          = image_fields.check_box :_destroy
+          = image_fields.label :_destroy, 'Remove Image'
+
   .formSection
-    = f.label :image, 'Image URL', class: 'formLabel'
-    = f.text_field :image, class: 'formInput', placeholder: @cat.image
+    = f.fields_for :cat_images, CatImage.new do |image_fields|
+      = image_fields.label :image, 'Add New Images', class: 'formLabel'
+      = image_fields.file_field :image, multiple: true, class: 'formInput'
 
   .submitButton
     = f.submit 'Submit', class: 'btnForm thumbsUpButton thumbsUp'
