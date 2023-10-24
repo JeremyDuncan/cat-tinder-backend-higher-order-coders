@@ -54,11 +54,8 @@ class CatsController < ApplicationController
   end
 
   private
-  # def cat_params
-  #   params.require(:cat).permit(:name, :age, :enjoys, :image)
-  # end
+
   def cat_params
-    # params.require(:cat).permit(:name, :age, :enjoys, cat_images_attributes: [:id, { image: [] }, :_destroy])
     params.require(:cat).permit(:name, :age, :enjoys,
                                 cat_images_attributes: [:id, :image, :_destroy])
   end
