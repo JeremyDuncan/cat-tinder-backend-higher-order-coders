@@ -66,9 +66,8 @@
 
 
 .select {
-  background:  $primary;
-  padding: 15px;
-  padding-left: 40px;
+  background:   $primary;
+  padding:      15px;
 }
 
 .select:hover {
@@ -81,15 +80,7 @@
   background: $secondary;
 }
 
-.select:after {
-  content: "\f6be";
 
-}
-
-.select:hover:after {
-  -webkit-animation: $bounce-up;
-  animation:         $bounce-up;
-}
 
 //##############################################################################
 //##  Thumbs Down Button  ##

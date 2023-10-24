@@ -24,11 +24,17 @@ class CatsController < ApplicationController
 
   end
   def edit
+
     @cat = Cat.find(params[:id])
   end
+
   def update
     @cat = Cat.find(params[:id])
-    @cat.update(cat_params)
+    if @cat.update(cat_params)
+      redirect_to @cat, notice: 'Cat profile was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def destroy
