@@ -5,7 +5,7 @@
   br
 
   .flex-box.center.col.gap-xxl.full-width
-    .flex-box.center.full-width.gap-l
+    .flex-box.center.full-width.gap-l.wrap
       .catImagesHome
         = image_tag 'cat_readme_pic.webp', alt: 'Stella Cat'
       .catImagesHome
@@ -15,9 +15,11 @@
 
     .catButtons
       = link_to cats_path, class: 'btnSep but select' do
-        .div style="padding-right: 60px"
-          | See Available Cats!
+        i.fa-solid.fa-eye
+        | &nbsp
+        | See Available Cats!
 
       = link_to  new_cat_path, class: 'btnSep but select' do
-        .div style="padding-right: 60px"
-          | Add Your Own Cat!
+        i.fa-solid.fa-plus
+        | &nbsp
+        | Add Your Own Cat!

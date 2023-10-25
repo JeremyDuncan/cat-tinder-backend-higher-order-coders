@@ -23,4 +23,9 @@
 @import "main";
 @import "header";
 @import "footer";
+@import "flip-card";
 
+
+.main-content {
+  padding-bottom: 100px; /* Adjust this value based on the height of your footer */
+}

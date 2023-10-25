@@ -24,11 +24,17 @@ class CatsController < ApplicationController
 
   end
   def edit
+
     @cat = Cat.find(params[:id])
   end
+
   def update
     @cat = Cat.find(params[:id])
-    @cat.update(cat_params)
+    if @cat.update(cat_params)
+      redirect_to @cat, notice: 'Cat profile was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -48,11 +54,8 @@ class CatsController < ApplicationController
   end
 
   private
-  # def cat_params
-  #   params.require(:cat).permit(:name, :age, :enjoys, :image)
-  # end
+
   def cat_params
-    # params.require(:cat).permit(:name, :age, :enjoys, cat_images_attributes: [:id, { image: [] }, :_destroy])
     params.require(:cat).permit(:name, :age, :enjoys,
                                 cat_images_attributes: [:id, :image, :_destroy])
   end

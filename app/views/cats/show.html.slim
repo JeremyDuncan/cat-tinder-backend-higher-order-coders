@@ -1,10 +1,9 @@
-
 .flex-box.col.center
   h1 Say Hello To #{@cat.name}
   br
-  .multi-card
+  .multi-card style="width: 35%"
     .flex-box.center.col.gap-m.full-width.apart
-      .flex-box.center.gap-m.full-width
+      .flex-box.center.gap-m.full-width.wrap style="max-height: 350px; overflow: scroll;"
         - if @cat.cat_images.any?
           - @cat.cat_images.each_with_index do |cat_image, index|
             - if cat_image.image.present?
@@ -26,101 +25,78 @@
         i.fas.fa-pen-to-square<>
         | Edit #{@cat.name}
 
-    button.delete-button.btnSep.but.arrow onclick="openDeleteModal()"
+    button.delete-button.btnSep.but.arrow
       .div style="padding-right: 50px"
         | Delete
 
-  #modal.overlay onclick="closeModal()"
-    .modal-content onclick="event.stopPropagation()"
-      .carousel
-        - @cat.cat_images.each_with_index do |cat_image, index|
-          -if cat_image.image.present?
-            .carousel-slide data-index=index
-              img src=cat_image.image.url class="carousel-image"
+  #modal.modal.fade tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true"
+      .modal-dialog.modal-lg role="document"
+        .modal-content
+          .modal-header
+            h5#modalLabel.modal-title Say Hello To #{@cat.name}
+            button.close type="button" data-dismiss="modal" aria-label="Close"
+              spani.fa-solid.fa-circle-xmark aria-hidden="true"
+          .modal-body.carousel
+            .carousel-inner
+              - @cat.cat_images.each_with_index do |cat_image, index|
+                - active_class = index == 0 ? 'active' : ''
+                .carousel-item class=active_class data-index=index
+                  - if cat_image.image.present?
+                    = image_tag cat_image.image.url, class: "carousel-image img-fluid"
+          .modal-footer.carousel-controls
+            button.btn.btn-primary.carousel-prev type="button"
+              | Previous
+            button.btn.btn-secondary.carousel-next type="button"
+              | Next
 
-      .carousel-controls
-        button.carousel-prev
-          | Previous
-        button.carousel-next
-          | Next
-        button.close-button type="button"
-          | Close
-
-  #delete-modal.overlay onclick="closeDeleteModal()"
-    .modal-content onclick="event.stopPropagation()"
-      h2 Are you sure you want to delete #{@cat.name}'s profile?
-      .modal-controls
-        button.cancel-button.btnSep.but.arrow type="button" onclick="closeDeleteModal()"
-          | Cancel
-          .div style="padding-right: 30px"
-
-        / = link_to 'Confirm', delete_cat_path(@cat), method: :delete, class: 'confirm-button'
-        = link_to delete_cat_path(@cat), class: 'btnSep but arrow' do
-          .div style="padding-right: 30px"
+  #delete-modal.modal.fade tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true"
+    .modal-dialog role="document"
+      .modal-content
+        .modal-header
+          h5#deleteModalLabel.modal-title Delete Confirmation
+          button.close type="button" data-dismiss="modal" aria-label="Close"
+            span aria-hidden="true" &times;
+        .modal-body
+          h2 Are you sure you want to delete #{@cat.name}'s profile?
+        .modal-footer
+          button.cancel-button.btn.btn-secondary type="button" data-dismiss="modal"
+            | Cancel
+          = link_to delete_cat_path(@cat), class: 'btn btn-danger' do
             i.fas.fa-trash-alt<>
             | Delete
 
 javascript:
-  $(document).ready(function () {
-      let currentSlide = 0;
-      const slides = $('.carousel-slide');
+    $(document).ready(function () {
+        $('.delete-button').on('click', function (event) {
+            $('#delete-modal').modal('show');
 
-      function openModal(index) {
-          $('#modal').addClass('visible');
-          currentSlide = index;
-          showSlide();
-      }
+        });
+        function showSlide(index) {
+            $('.carousel-item').removeClass('active');
+            $($('.carousel-item')[index]).addClass('active');
+        }
 
-      function closeModal() {
-          $('#modal').removeClass('visible');
-      }
+        $('.thumbnail').each((index, thumbnail) => {
+            $(thumbnail).on('click', function () {
+                $('#modal').modal('show');
+                showSlide(index);
+            });
+        });
 
-      function showSlide() {
-          slides.each((index, slide) => {
-              $(slide).css('display', index === currentSlide ? 'block' : 'none');
-          });
-      }
+        $('#modal .carousel-prev').on('click', function (event) {
+            const currentSlide = $('.carousel-item.active').data('index');
+            const newIndex = (currentSlide - 1 + $('.carousel-item').length) % $('.carousel-item').length;
+            showSlide(newIndex);
+            event.stopPropagation();
+        });
 
-      function prevSlide() {
-          currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-          showSlide();
-      }
-
-      function nextSlide() {
-          currentSlide = (currentSlide + 1) % slides.length;
-          showSlide();
-      }
-
-      function openDeleteModal() {
-          $('#delete-modal').addClass('visible');
-      }
-
-      function closeDeleteModal() {
-          $('#delete-modal').removeClass('visible');
-      }
-
-      // Attach event handlers using jQuery
-      $('.thumbnail').each((index, thumbnail) => {
-          $(thumbnail).on('click', () => openModal(index));
-      });
-
-      $('.delete-button').on('click', openDeleteModal);
-      $('#modal .carousel-prev').on('click', function (event) {
-          prevSlide();
-          event.stopPropagation();
-      });
-      $('#modal .carousel-next').on('click', function (event) {
-          nextSlide();
-          event.stopPropagation();
-      });
-      $('#modal .close-button').on('click', function (event) {
-          closeModal();
-          event.stopPropagation();
-      });
-      $('#modal.overlay').on('click', closeModal);
-      $('#delete-modal.overlay').on('click', closeDeleteModal);
-      $('#delete-modal .cancel-button').on('click', closeDeleteModal);
-  });
+        $('#modal .carousel-next').on('click', function (event) {
+            const currentSlide = $('.carousel-item.active').data('index');
+            const newIndex = (currentSlide + 1) % $('.carousel-item').length;
+            showSlide(newIndex);
+            event.stopPropagation();
+        });
+    });
 
 
 style
@@ -131,85 +107,67 @@ style
       box-shadow: $box-shadow;
       transition: transform 0.3s ease-in-out;
     }
+
     .thumbnail:hover {
       transform: scale(1.1);
-
     }
+
     .multi-card {
-      box-shadow:       4px 8px 17px black;
-      border-radius:    10px;
-      display:          flex;
-      padding:          5px;
+      box-shadow: 4px 8px 17px black;
+      border-radius: 10px;
+      padding: 5px;
       background-color: rgb(198, 109, 109);
-      border:           2px solid rgb(155, 99, 99);
-      margin-bottom:    20px;
-      justify-content:  center;
+      border: 2px solid rgb(155, 99, 99);
+      margin-bottom: 20px;
     }
-    .description{
-      width: 100%
-    }
-    .overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
+
+    .description {
       width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
     }
 
-    .overlay.visible {
-      display: block;
-    }
-
-    .modal-content {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
+    #modal .modal-content {
       max-height: 80vh;
-    }
-    .modal-content>img {
-     max-height: 80vh;
-    }
-
-
-    .carousel-slide {
-      display: none;
+      min-height: 580px;
+      overflow: auto;
     }
 
-    .carousel-slide img {
-      max-height: 60vh;
-      width: auto;  // This will maintain the aspect ratio of the image
+    .carousel-item.active > img {
+      max-height: 55vh;
+      min-height: 450px;
+      border-radius: 8px;
+      width: auto;
       height: auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      border: 10px #d26377 solid;
     }
+
     button {
-      background-color: #008CBA; /* Blue */
       border: none;
       color: white;
-      padding: 12px 24px;
       text-align: center;
       text-decoration: none;
-      display: inline-block;
       font-size: 16px;
-      margin: 4px 2px;
       cursor: pointer;
       border-radius: 4px;
+      margin: 4px 2px;
+    }
+
+    button.close {
+    background-color: #55000f;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 4px 2px
+
     }
 
     button:hover {
-      background-color: #004C73; /* Darker blue */
+      background-color: #d26377;
     }
 
-    .carousel-controls {
-      display: flex;
-      justify-content: space-between;
-    }
-    .modal-controls {
-      display: flex;
-      justify-content: space-around;
-      margin-top: 20px;
-    }

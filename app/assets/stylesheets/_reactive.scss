@@ -66,9 +66,8 @@
 
 
 .select {
-  background:  $primary;
-  padding: 15px;
-  padding-left: 40px;
+  background:   $primary;
+  padding:      15px;
 }
 
 .select:hover {
@@ -81,22 +80,14 @@
   background: $secondary;
 }
 
-.select:after {
-  content: "\f6be";
 
-}
-
-.select:hover:after {
-  -webkit-animation: $bounce-up;
-  animation:         $bounce-up;
-}
 
 //##############################################################################
 //##  Thumbs Down Button  ##
 //##########################
 .thumbsDownButton, .thumbsUpButton {
   @include button-styles;
-  min-width: 10em;
+  min-width: 5em;
 }
 .thumbsDown {
   background: $primary;
@@ -112,11 +103,6 @@
   background: $secondary;
 }
 
-.thumbsDown:after {
-  content: "\f165";
-  font-size: 1.2rem;
-
-}
 
 .thumbsDown:hover:after {
   //-webkit-animation: $bounce-down;

@@ -1,41 +1,24 @@
-#navHeader.header
-  .navbar.desktop
+#navHeader.header style="z-index: 1000"
+  nav.navbar.navbar-expand-lg
     .navbar-brand href="/"
       = image_tag "cat_logo.svg", alt: "logo"
       .pageTitle
         | Cat Tinder
-  .linkContainer
-    a.nav-link.grow href="/"
-      i.fas.fa-house
-      | &nbsp
-      | Home
-    a.nav-link.grow href="/cats"
-      i.fas.fa-cat
-      | &nbsp
-      | Available Cats
-    a.nav-link.grow href="/cats/new"
-      i.fas.fa-paw
-      | &nbsp
-      | Add Cat
 
-  / .navbar.mobile.fixed-top
-  /   .navbar-brand href="/"
-  /     img alt="logo" src="path_to_logo/logo.svg"
-  /     .pageTitle Cat Tinder
-  /   .toggler
-  /     button.navbar-toggler.me-2 type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-  /       span.navbar-toggler-icon
-  /   #navbarCollapse.collapse.navbar-collapse
-  /     ul.navbar-nav
-  /       li.nav-item
-  /         a.nav-link.grow.mobileLinks href="/"
-  /           i.fas.fa-house
-  /           | Home
-  /       li.nav-item
-  /         a.nav-link.grow.mobileLinks href="/catindex"
-  /           i.fas.fa-cat
-  /           | Available Cats
-  /       li.nav-item
-  /         a.nav-link.grow.mobileLinks href="/catnew"
-  /           i.fas.fa-paw
-  /           | Add Cat
+    button.navbar-toggler type="button" data-toggle="collapse" data-target="#navbarNav"
+      i.fas.fa-bars
+
+    #navbarNav.collapse.navbar-collapse
+      ul.navbar-nav.ml-auto
+        li.nav-item
+          a.nav-link.text-light href="/"
+            i.fas.fa-house
+            | &nbsp; Home
+        li.nav-item
+          a.nav-link.text-light href="/cats"
+            i.fas.fa-cat
+            | &nbsp; Available Cats
+        li.nav-item
+          a.nav-link.text-light href="/cats/new"
+            i.fas.fa-paw
+            | &nbsp; Add Cat
