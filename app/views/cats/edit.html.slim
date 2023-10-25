@@ -33,5 +33,12 @@
       br
 
     .flex-box
-      = f.submit 'Submit', class: 'form-submit btnForm thumbsUpButton thumbsUp'
-      = link_to 'Cancel', cats_path, class: 'form-cancel btnForm thumbsDownButton thumbsDown'
+      = button_tag type: 'submit', class: 'form-submit btnForm thumbsUpButton thumbsDown' do
+        i.fas.fa-check-square
+        | &nbsp;
+        | Submit
+
+      = link_to cats_path, class: 'form-cancel btnForm thumbsDownButton thumbsDown' do
+        i.fa-solid.fa-rectangle-xmark
+        | &nbsp
+        | Cancel

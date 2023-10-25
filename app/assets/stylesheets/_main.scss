@@ -1,79 +1,52 @@
 @import "mixins";
 
-.page {
-  display: flex;
-  flex-direction: column;
-}
-
 /* Targets H1 on pages ex(Home, Index, Edit, etc..)*/
 #root>div.App>div>h1 {
-  font-family: 'Lobster Two', cursive;
-  color: rgb(239, 121, 121);
-  font-size: 3.3rem;
-  text-shadow: 2px 2px 4px black;
+  font-family: $font-family-title;
+  color:       $pink;
+  font-size:   $title-size;
+  text-shadow: $txt-shadow;
 }
 
 /* === === Forms === === */
-.formContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.formInput {
-  background-color: #ddd5d0;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.formLabel {
-  text-align: left;
-  justify-content: left;
-  align-items: left;
-}
-
 .catForm {
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-  width: 80%;
-  background-color: red;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 4px 8px 17px black;
-  background-color: rgb(198, 109, 109);
-  font-weight: bold;
-  font-size: 1.5rem;
-  border: 2px solid rgb(155, 99, 99);
-  text-shadow: 1px 1px 2px rgb(182, 176, 176);
-  text-align: left;
-  margin-bottom: 25px;
+  display:          flex;
+  flex-direction:   column;
+  margin:           auto;
+  width:            80%;
+  background-color: $primary;
+  padding:          15px;
+  border-radius:    10px;
+  box-shadow:       $box-shadow;
+  background-color: $pink;
+  font-weight:      bold;
+  font-size:        1.5rem;
+  border:           2px solid $pink-dark;
+  text-shadow:      1px 1px 2px rgb(182, 176, 176);
+  text-align:       left;
+  margin-bottom:    25px;
 }
 
 
 /* === === Cat Images === === */
-.catImagesHome>img {
-  border-radius:    8px;
-  height:           350px;
-  width:            auto;
-  border:           2px solid rgb(155, 99, 99);
-  box-shadow:       $box-shadow;
-  background-color: $pink;
+.catImagesHome > img {
+  @include cat-img-styles
 }
+
 .catImagesHome{
   display:         flex;
   justify-content: space-between;
+
 }
 
 /* === === Cards === === */
 .cardCollection {
-  display: flex;
-  gap: 20px;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display:         flex;
+  gap:             20px;
+  flex-direction:  row;
+  flex-wrap:       wrap;
   justify-content: center;
-  margin: auto;
+  margin:          auto;
 }
 
 .card-title {
@@ -81,22 +54,15 @@
 }
 
 .card {
-  box-shadow:       4px 8px 17px black;
-  height:           500px;
-  width:            18rem;
-  border-radius:    10px;
-  display:          flex;
+  box-shadow:       $box-shadow;
   padding:          5px;
-  background-color: rgb(198, 109, 109);
+  background-color: $pink-card;
   border:           2px solid rgb(155, 99, 99);
-  margin-bottom:    20px;
-  justify-content: center;
 }
 
 .cardImage {
-  border-radius: 10px 10px 0px 0px;
-  height: 250px;
-  width:  90%;
+  border-radius: $border-radius;
+  width:         auto;
 }
 
 .subtitle {
@@ -105,15 +71,14 @@
 
 /* Card Description */
 .description {
-  background-color: rgb(60, 55, 55);
-  color: rgb(239, 121, 121);
-  border-radius: 0px 0px 10px 10px;
-  display: flex;
-  flex-direction: column;
-  //justify-content: space-around;
-  height: 200px;
-  text-align: center;
-  width: 90%;
+  background-color: $dark-grey;
+  color:            $pink-card;
+  border-radius:    $border-radius;
+  display:          flex;
+  flex-direction:   column;
+  height:           40%;
+  text-align:       center;
+  width:            100%;
 }
 
 /* === === Buttons === === */
@@ -132,13 +97,12 @@
 }
 
 .btn {
-  box-shadow: 2px 2px 9px black;
-  color: rgb(239, 121, 121);
-  font-weight: bold;
-  background: #701202;
-
-  border-radius: 5px;
-  padding-top: 15px;
+  box-shadow:     $btn-shadow;
+  color:          $pink;
+  font-weight:    bold;
+  background:     $tertiary;
+  border-radius:  5px;
+  padding-top:    15px;
   padding-bottom: 15px;
 }
 
@@ -151,23 +115,23 @@
 }
 
 .btnForm {
-  display: flex;
-  position: relative;
+  display:         flex;
+  position:        relative;
   justify-content: center;
-  align-items: center;
-  text-align: right;
+  align-items:     center;
+  text-align:      right;
 }
 
 .btn:hover {
-  background: rgb(239, 121, 121);
-  color: rgb(60, 55, 55);
+  background:  $pink;
+  color:       $dark-grey;
   font-weight: bold;
 }
 
 .btn-secondary:active {
-  color: rgb(31, 17, 17);
+  color:       rgb(31, 17, 17);
   font-weight: bold;
-  background: #c33114;
+  background:  $tertiary;
 }
 
 /* === === Index Page === === */

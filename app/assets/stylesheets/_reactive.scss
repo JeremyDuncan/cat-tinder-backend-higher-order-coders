@@ -87,7 +87,7 @@
 //##########################
 .thumbsDownButton, .thumbsUpButton {
   @include button-styles;
-  min-width: 10em;
+  min-width: 5em;
 }
 .thumbsDown {
   background: $primary;
@@ -103,11 +103,6 @@
   background: $secondary;
 }
 
-.thumbsDown:after {
-  content: "\f165";
-  font-size: 1.2rem;
-
-}
 
 .thumbsDown:hover:after {
   //-webkit-animation: $bounce-down;
