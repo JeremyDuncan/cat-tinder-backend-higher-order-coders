@@ -39,15 +39,15 @@
           .modal-body.carousel
             .carousel-inner
               - @cat.cat_images.each_with_index do |cat_image, index|
-                - active_class = index == 0 ? 'active' : ''
-                .carousel-item class=active_class data-index=index
-                  - if cat_image.image.present?
+                - if cat_image.image.present?
+                  .carousel-item class="#{'active' if index == 0}" data-index=index
                     = image_tag cat_image.image.url, class: "carousel-image img-fluid"
+
           .modal-footer.carousel-controls
-            button.btn.btn-primary.carousel-prev type="button"
-              | Previous
-            button.btn.btn-secondary.carousel-next type="button"
-              | Next
+                button.btn.btn-primary.carousel-prev type="button"
+                  | Previous
+                button.btn.btn-secondary.carousel-next type="button"
+                  | Next
 
   #delete-modal.modal.fade tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true"
     .modal-dialog role="document"
