@@ -3,10 +3,10 @@
     h2.loadMessage No cats have been added.
     h4 Please add cats.
   - else
-    h1 Available Cats
+    h1 Meet your puuurfect match
   br
 
-  .cardCollection.loader
+  .cardCollection.loader 
     - @cats.select { |cat| cat.cat_images.any? }.each_with_index do |cat, index|
       - image_to_display = cat.cat_images.detect { |img| img.image.present? }
       - cat_image = image_to_display.image.url(:thumb_large)
