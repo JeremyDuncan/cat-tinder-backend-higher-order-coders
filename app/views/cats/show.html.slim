@@ -1,9 +1,9 @@
 .flex-box.col.center
   h1 Say Hello To #{@cat.name}
   br
-  .multi-card style="width: 35%"
-    .flex-box.center.col.gap-m.full-width.apart
-      .flex-box.center.gap-m.full-width.wrap style="max-height: 350px; overflow: scroll;"
+  .multi-card style="max-width: 75%; height: 40%;"
+    .flex-box.center.col.gap-m.full-width.even style="height:50%; padding: 0px;"
+      .flex-box.center.gap-m.full-width.wrap style="max-height: 350px; overflow: scroll; padding: 5px"
         - if @cat.cat_images.any?
           - @cat.cat_images.each_with_index do |cat_image, index|
             - if cat_image.image.present?
