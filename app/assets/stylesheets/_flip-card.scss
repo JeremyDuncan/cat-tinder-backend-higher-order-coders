@@ -55,3 +55,15 @@
 .card {
   border-radius: $border-radius;
 }
+
+
+@media only screen and (max-width: 767px) {
+  .flip-card:hover .flip-card-inner {
+    transform: none;
+  }
+
+  .flip-card:active {
+    transform: none;
+    transition: none;
+  }
+}

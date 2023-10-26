@@ -19,6 +19,7 @@
                   .flex-box.center.col.gap-s.full-width
                     img.cardImage alt="Cat Profile Picture" src=cat_image
                     .description.center
-                      h1 = cat.name
+                      h1
+                        | #{cat.name}
               .flip-card-back
                 h1 View #{cat.name}
