@@ -58,12 +58,12 @@
 
 
 @media only screen and (max-width: 767px) {
-  .flip-card:hover .flip-card-inner {
-    transform: none;
+  .flip-card {
+    pointer-events: none;
   }
 
-  .flip-card:active {
-    transform: none;
-    transition: none;
+  .flip-card:hover .flip-card-inner,
+  .flip-card:active .flip-card-inner {
+    transform: none !important;
   }
 }
