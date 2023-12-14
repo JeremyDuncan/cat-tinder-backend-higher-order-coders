@@ -26,6 +26,7 @@ module CatTinderBackend
     config.autoload_paths << Rails.root.join('lib')
 
     config.hosts << "cattinder.jeremyd.net"
+    config.hosts << "www.cattinder.jeremyd.net"
 
     # Configuration for the application, engines, and railties goes here.
     #
