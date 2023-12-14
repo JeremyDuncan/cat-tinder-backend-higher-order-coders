@@ -25,7 +25,7 @@ module CatTinderBackend
     config.load_defaults 7.0
     config.autoload_paths << Rails.root.join('lib')
 
-    config.hosts << "cattinder.jeremyduncan.synology.me"
+    config.hosts << "cattinder.jeremyd.net"
 
     # Configuration for the application, engines, and railties goes here.
     #
