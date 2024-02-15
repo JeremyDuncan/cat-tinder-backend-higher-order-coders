@@ -20,10 +20,14 @@
           = @cat.enjoys
 
   .catButtons
-    = link_to edit_cat_path(@cat), class: 'btnSep but arrow' do
+    / = link_to edit_cat_path(@cat), class: 'btnSep but arrow' do
+    /   .div style="padding-right: 50px"
+    /     i.fas.fa-pen-to-square<>
+    /     | Edit #{@cat.name}
+    = link_to "/cats", class: 'btnSep but arrow' do
       .div style="padding-right: 50px"
-        i.fas.fa-pen-to-square<>
-        | Edit #{@cat.name}
+        i.fas.fa-chevron-left<>
+        | Back
 
     / button.delete-button.btnSep.but.arrow
     /   .div style="padding-right: 50px"
