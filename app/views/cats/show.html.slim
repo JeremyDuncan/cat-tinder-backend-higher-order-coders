@@ -25,9 +25,9 @@
         i.fas.fa-pen-to-square<>
         | Edit #{@cat.name}
 
-    button.delete-button.btnSep.but.arrow
-      .div style="padding-right: 50px"
-        | Delete
+    / button.delete-button.btnSep.but.arrow
+    /   .div style="padding-right: 50px"
+    /     | Delete
 
   #modal.modal.fade tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true"
       .modal-dialog.modal-lg role="document"
@@ -49,21 +49,21 @@
                 button.btn.btn-secondary.carousel-next type="button"
                   | Next
 
-  #delete-modal.modal.fade tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true"
-    .modal-dialog role="document"
-      .modal-content
-        .modal-header
-          h5#deleteModalLabel.modal-title Delete Confirmation
-          button.close type="button" data-dismiss="modal" aria-label="Close"
-            span aria-hidden="true" &times;
-        .modal-body
-          h2 Are you sure you want to delete #{@cat.name}'s profile?
-        .modal-footer
-          button.cancel-button.btn.btn-secondary type="button" data-dismiss="modal"
-            | Cancel
-          = link_to delete_cat_path(@cat), class: 'btn btn-danger' do
-            i.fas.fa-trash-alt<>
-            | Delete
+  / #delete-modal.modal.fade tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true"
+  /   .modal-dialog role="document"
+  /     .modal-content
+  /       .modal-header
+  /         h5#deleteModalLabel.modal-title Delete Confirmation
+  /         button.close type="button" data-dismiss="modal" aria-label="Close"
+  /           span aria-hidden="true" &times;
+  /       .modal-body
+  /         h2 Are you sure you want to delete #{@cat.name}'s profile?
+  /       .modal-footer
+  /         button.cancel-button.btn.btn-secondary type="button" data-dismiss="modal"
+  /           | Cancel
+  /         = link_to delete_cat_path(@cat), class: 'btn btn-danger' do
+  /           i.fas.fa-trash-alt<>
+  /           | Delete
 
 javascript:
     $(document).ready(function () {
